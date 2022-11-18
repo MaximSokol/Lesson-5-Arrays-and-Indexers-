@@ -10,10 +10,34 @@ using Lesson_5__Arrays_and_Indexers_.Task_4;
 
 namespace Lesson_5__Arrays_and_Indexers_
 {
+    class MyClass<T>
+    {
+        public static T[] values = new T[10];
+        static int newIndex = 0;
+        //------------------------------------
+
+        public T this[int index] => values[index];
+        //------------------------------------------------
+
+        public static void AddElement(T value)
+        {
+            if (newIndex >= values.Length)
+            {
+                throw new IndexOutOfRangeException("The index is out of range!");
+            }
+            values[newIndex++] = value;
+        }
+        //------------------------------------------------
+    }
+
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            MyClass<int> obj = new MyClass<int>();
+            MyClass<int>.AddElement(20);
+            Console.WriteLine(obj[0]);
+
             // Task 1
 
             //----------------------------------------------------------
@@ -61,11 +85,15 @@ namespace Lesson_5__Arrays_and_Indexers_
 
             //----------------------------------------------------------
 
-            Store store = new Store(2);
-            store.AddElem(new Article("laptop", "Eldorado", 25000), 0);
-            store.AddElem(new Article("laptop", "Eldorado", 25000), 1);
+            Store store = new Store(3);
+            store.AddElem(0, new Article("laptop", "Eldorado", 25000));
+            store.AddElem(1, new Article("smartphone", "Apple", 15600));
+            store.AddElem(2, new Article("a clock", "Rolex", (int)190_000));
 
-            Console.WriteLine(store[1]);
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine(store[i]);
+            }
             //----------------------------------------------------------
         }
     }

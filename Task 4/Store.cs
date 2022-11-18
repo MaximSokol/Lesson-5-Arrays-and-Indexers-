@@ -17,9 +17,9 @@ namespace Lesson_5__Arrays_and_Indexers_.Task_4
         }
         //----------------------------------------------------
 
-        public string AddElem(Article elem, int index)
+        public string AddElem(int index, Article elem)
         {
-            if (index > 0 && index < arr.Length)
+            if (index >= 0 && index <= arr.Length)
                 arr[index] = elem;
 
             return @"The trying to get access behind the array!";
@@ -30,7 +30,7 @@ namespace Lesson_5__Arrays_and_Indexers_.Task_4
         {
             get
             {
-                if (index > 0 && index < arr.Length)
+                if (index >= 0 && index <= arr.Length)
                     return arr[index].Info();
                 return @"The trying to get access behind the array!";
             }

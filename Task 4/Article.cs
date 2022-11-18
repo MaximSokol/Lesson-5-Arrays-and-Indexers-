@@ -23,9 +23,9 @@ namespace Lesson_5__Arrays_and_Indexers_.Task_4
 
         public string Info()
         {
-            return $"Name:\t{Name}\n" +
+            return $"Name:\t\t\t{Name}\n" +
                 $"Name of a store:\t{NameOfAStore}\n" +
-                $"Cost of a product:\t{CostOfAProduct}";
+                $"Cost of a product:\t{CostOfAProduct}\n";
         }
         //---------------------------------------------------------
     }
